@@ -1,0 +1,297 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 1000;
+  width: 99%;
+}
+
+.logo h1 {
+  font-size: 1rem;
+}
+
+.navbar {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  color: black;
+}
+
+.navbar a:hover {
+  background-color: #f5f5f5;
+}
+
+.menu-toggle {
+  padding: 5px 0;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+}
+
+.homeSection {
+  padding: 60px 0;
+}
+
+.homeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.homeData {
+  padding-top: 60px;
+  flex: 1;
+  padding-right: 20px;
+}
+
+.homeData h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.homeData h2 {
+  font-size: 1.5em;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.homeData ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.homeData li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.homeData li:before {
+  content: "📧";
+  margin-right: 8px;
+}
+
+.homeData li:nth-child(2):before {
+  content: "🔗 ";
+}
+
+.homeData li:nth-child(3):before {
+  content: "📍 ";
+}
+
+.homeData a {
+  color: #6200ea;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.imgContainer img {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.aboutMeSection {
+  background-color: white;
+  color: #333;
+  padding: 60px 0;
+}
+
+.aboutMeContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 300px;
+}
+
+.aboutMeContainer p {
+  font-size: 1em;
+  line-height: 1.5;
+  max-width: 800px;
+}
+
+.experienceSection {
+  padding: 60px 0;
+}
+
+.experienceContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.card:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.card h3 {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.educationSection {
+  padding: 60px 0;
+}
+
+.educationContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.skillsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.skillsSection {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 0;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.skillsSection h2 {
+  margin: 0;
+  padding-top: 20px;
+}
+
+.skillSubSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.skillIcon {
+  width: 500px;
+  height: 700px;
+  margin-bottom: 15px;
+  margin-right: 40px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    position: absolute;
+    width: 99%;
+    top: 100%;
+    right: 10px;
+    background-color: white;
+    flex-direction: column;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .menu-toggle {
+    display: flex;
+    padding-right: 40px;
+  }
+  .homeContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .homeData {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .homeData h1 {
+    font-size: 1.5em;
+  }
+
+  .homeData h2 {
+    font-size: 1.2em;
+  }
+
+  .imgContainer img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .skillImg {
+    width: 400px;
+    height: 400px;
+  }
+
+  .cardContainer {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    flex: 0 0 100%;
+  }
+  .card,
+  .card:nth-child(3) {
+    grid-column: unset;
+    grid-row: unset;
+  }
+  .skillsContainer {
+    flex-direction: column;
+  }
+
+  .skillSubSection {
+    margin-bottom: 30px;
+  }
+}

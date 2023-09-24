@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Responsive Header</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <h1>Martin Silva CV</h1>
+      </div>
+      <nav class="navbar" id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">Acerca</a>
+        <a href="#experience">Experiencia</a>
+        <a href="#education">Educación</a>
+        <a href="#skills">Skills</a>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </header>
+    <section class="homeSection" id="home">
+      <div class="homeContainer">
+        <div class="homeData">
+          <h1>Martin Alejandro Silva</h1>
+          <h2>Fullstack Developer</h2>
+          <ul>
+            <ul>
+              <li>
+                <a href="mailto:martinalejandrosilva@gmail.com"
+                  >martinalejandrosilva@gmail.com</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/martin-alejandro-silva-a457b3b2/"
+                  target="_blank"
+                  >LinkedIn Profile</a
+                >
+              </li>
+              <li>Buenos Aires, Argentina</li>
+            </ul>
+          </ul>
+        </div>
+        <div class="imgContainer">
+          <img src="../../assets/images/martin.png" alt="Foto de Perfil" />
+        </div>
+      </div>
+    </section>
+    <section class="aboutMeSection" id="about">
+      <div class="aboutMeContainer">
+        <h2>Acerca de mi</h2>
+        <p>
+          Soy Martin un Profesional IT con mas de 7 años de experiencia
+          trabajando con multiples tecnologias en distintias industrias
+        </p>
+      </div>
+    </section>
+    <section class="experienceSection" id="experience">
+      <div class="experienceContainer">
+        <h2>Experiencia</h2>
+        <div class="cardContainer">
+          <!-- Card 1 -->
+          <div class="card">
+            <h3>Sr. Fullstack Developer</h3>
+            <p>2023 - Presente</p>
+            <p>Desarrollador Fullstack .NET, React y AWS.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <h3>Sr. Software Engineer</h3>
+            <p>2019 - 2023</p>
+            <p>Desarrollad fullstack .NET, React y Azure.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card">
+            <h3>IT Operations Analyst</h3>
+            <p>2017 - 2018</p>
+            <p>Implementador de soluciones de Monitoreo de aplicaciones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="educationSection" id="education">
+      <div class="educationContainer">
+        <h2>Educación</h2>
+        <div class="cardContainer">
+          <div class="card">
+            <h3>Lic. en Gestión de tecnologías de la información - UADE</h3>
+            <p>2023 - Presente</p>
+          </div>
+          <div class="card">
+            <h3>Tecnicatura en desarrollo de software - UADE</h3>
+            <p>2017 - 2022</p>
+          </div>
+          <div class="card">
+            <h3>Operador Técnico de estudio de radio y Tv - ETER</h3>
+            <p>2014 - 2016</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="skillsSection" id="skills">
+      <!-- Cambiar esta parte y usar componentes de bootstrap para mostrar los progressBar y ProgressCircles.  -->
+      <div class="skillsContainer">
+        <div class="skillSubSection">
+          <h2>Technical</h2>
+          <img
+            src="../assets/images/TechnicalSkills.png"
+            alt="Technical Icon"
+            class="skillImg"
+          />
+        </div>
+        <div class="skillSubSection">
+          <h2>Professional</h2>
+          <img
+            src="../assets/images/ProfessionalSkills.png"
+            alt="Professional Icon"
+            class="skillImg"
+          />
+        </div>
+      </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("menuToggle").addEventListener("click", function() {
+                const navbar = document.getElementById("navbar");
+                if (navbar.style.display === "none" || navbar.style.display === "") {
+                    navbar.style.display = "flex";
+                } else {
+                    navbar.style.display = "none";
+                }
+            });
+        });
+    </script>
+  </body>
+</html>
