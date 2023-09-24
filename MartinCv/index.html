@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Responsive Header</title>
+    <title>Martin Silva CV</title>
   </head>
   <body>
     <header class="header">
@@ -115,7 +115,7 @@
           <img
             src="../assets/images/TechnicalSkills.png"
             alt="Technical Icon"
-            class="skillImg"
+            class="skillIcon"
           />
         </div>
         <div class="skillSubSection">
@@ -123,22 +123,22 @@
           <img
             src="../assets/images/ProfessionalSkills.png"
             alt="Professional Icon"
-            class="skillImg"
+            class="skillIcon"
           />
         </div>
       </div>
     </section>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById("menuToggle").addEventListener("click", function() {
-                const navbar = document.getElementById("navbar");
-                if (navbar.style.display === "none" || navbar.style.display === "") {
-                    navbar.style.display = "flex";
-                } else {
-                    navbar.style.display = "none";
-                }
-            });
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("menuToggle").addEventListener("click", function() {
+            const navbar = document.getElementById("navbar");
+            if (navbar.style.display === "none" || navbar.style.display === "") {
+                navbar.style.display = "flex";
+            } else {
+                navbar.style.display = "none";
+            }
         });
-    </script>
+    });
+</script>
   </body>
 </html>
