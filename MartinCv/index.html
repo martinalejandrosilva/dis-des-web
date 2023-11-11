@@ -17,6 +17,11 @@
         <a href="#experience">Experiencia</a>
         <a href="#education">Educación</a>
         <a href="#skills">Skills</a>
+        <a href="#contact">Contacto</a>
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider round"></span>
+      </label>
       </nav>
       <div class="menu-toggle" id="menuToggle">
         <div class="bar"></div>
@@ -139,6 +144,27 @@
             }
         });
     });
+    document.addEventListener('DOMContentLoaded', function() {
+            const toggleSwitch = document.getElementById('darkModeToggle');
+            toggleSwitch.addEventListener('change', function() {
+                const navbar = document.getElementById("navbar");
+                if (navbar.style.display === "none" || navbar.style.display === "") {
+                    navbar.style.display = "flex";
+                } else {
+                    navbar.style.display = "none";
+                }
+            }, false);
+
+            toggleSwitch.addEventListener('change', switchTheme, false);
+
+            function switchTheme(e) {
+                if (e.target.checked) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+            }
+        });
 </script>
   </body>
 </html>
