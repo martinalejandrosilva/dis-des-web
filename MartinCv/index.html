@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Martin Silva CV</title>
   </head>
@@ -19,9 +23,9 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contacto</a>
         <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
+          <input type="checkbox" id="darkModeToggle" />
           <span class="slider round"></span>
-      </label>
+        </label>
       </nav>
       <div class="menu-toggle" id="menuToggle">
         <div class="bar"></div>
@@ -113,58 +117,133 @@
       </div>
     </section>
     <section class="skillsSection" id="skills">
-      <!-- Cambiar esta parte y usar componentes de bootstrap para mostrar los progressBar y ProgressCircles.  -->
       <div class="skillsContainer">
-        <div class="skillSubSection">
-          <h2>Technical</h2>
-          <img
-            src="../assets/images/TechnicalSkills.png"
-            alt="Technical Icon"
-            class="skillIcon"
-          />
+        <div class="TechSkillsContainer">
+          <h2>Technical Skills</h2>
+          <ul>
+            <li>.NET - Expert</li>
+            <li>React - Expert</li>
+            <li>Azure/AWS - Expert</li>
+            <li>NodeJS - Expert</li>
+            <li>Python - Expert</li>
+            <li>SQL - Expert</li>
+            <li>Git - Expert</li>
+          </ul>
         </div>
-        <div class="skillSubSection">
-          <h2>Professional</h2>
-          <img
-            src="../assets/images/ProfessionalSkills.png"
-            alt="Professional Icon"
-            class="skillIcon"
-          />
+        <div class="SoftSkillsContainer">
+          <h2>Professional Skills</h2>
+          <ul>
+            <li>Team Work - Expert</li>
+            <li>Agile - Expert</li>
+            <li>Comunicación - Expert</li>
+            <li>Ingles - Expert</li>
+            <li>Frances - Expert</li>
+          </ul>
         </div>
       </div>
     </section>
+    <section class="contactSection" id="contact">
+      <div class="contactContainer">
+        <h2>Contacto</h2>
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Nombre Completo" required />
+          <input
+            type="email"
+            id="email"
+            placeholder="Correo Electrónico"
+            required
+          />
+          <input type="text" id="subject" placeholder="Asunto" required />
+          <textarea id="message" placeholder="Su mensaje" required></textarea>
+          <button type="submit">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById("menuToggle").addEventListener("click", function() {
-            const navbar = document.getElementById("navbar");
-            if (navbar.style.display === "none" || navbar.style.display === "") {
-                navbar.style.display = "flex";
-            } else {
-                navbar.style.display = "none";
-            }
-        });
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-            const toggleSwitch = document.getElementById('darkModeToggle');
-            toggleSwitch.addEventListener('change', function() {
-                const navbar = document.getElementById("navbar");
-                if (navbar.style.display === "none" || navbar.style.display === "") {
-                    navbar.style.display = "flex";
-                } else {
-                    navbar.style.display = "none";
-                }
-            }, false);
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.getElementById("navbar");
+        const toggleSwitch = document.getElementById("darkModeToggle");
 
-            toggleSwitch.addEventListener('change', switchTheme, false);
+        // Function to handle the menu toggle
+        function toggleMenu() {
+          const displayStyle = navbar.style.display;
+          navbar.style.display =
+            displayStyle === "none" || displayStyle === "" ? "flex" : "none";
+        }
 
-            function switchTheme(e) {
-                if (e.target.checked) {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                } else {
-                    document.documentElement.removeAttribute('data-theme');
-                }
+        // Function to handle the dark mode toggle
+        function switchTheme(e) {
+          if (e.target.checked) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.removeAttribute("data-theme");
+          }
+        }
+        // Event listener for the menu toggle
+        document
+          .getElementById("menuToggle")
+          .addEventListener("click", toggleMenu);
+
+        // Event listener for the dark mode toggle
+        toggleSwitch.addEventListener("change", switchTheme, false);
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Collect form data
+          const name = document.getElementById("name");
+          const email = document.getElementById("email");
+          const subject = document.getElementById("subject");
+          const message = document.getElementById("message");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex for demonstration
+
+          // Simple function to show validation error
+          function showValidationError(input, message) {
+            const invalidFeedback = document.createElement("div");
+            invalidFeedback.classList.add("invalid-feedback");
+            invalidFeedback.innerText = message;
+            input.classList.add("is-invalid");
+            if (input.nextSibling.nodeName !== "DIV") {
+              input.parentNode.insertBefore(invalidFeedback, input.nextSibling);
             }
+          }
+
+          // Clear previous validation errors
+          const previousErrors = document.querySelectorAll(".invalid-feedback");
+          previousErrors.forEach(function (error) {
+            error.remove();
+          });
+          const invalidInputs = document.querySelectorAll(".is-invalid");
+          invalidInputs.forEach(function (input) {
+            input.classList.remove("is-invalid");
+          });
+
+          // Validation
+          if (!name.value)
+            showValidationError(name, "Por favor, ingresa tu nombre.");
+          if (!email.value || !emailRegex.test(email.value))
+            showValidationError(
+              email,
+              "Por favor, ingresa un correo electrónico válido."
+            );
+          if (!subject.value)
+            showValidationError(subject, "Por favor, ingresa un asunto.");
+          if (!message.value)
+            showValidationError(message, "Por favor, ingresa tu mensaje.");
+
+          // If there are validation errors, stop here
+          if (contactForm.querySelectorAll(".is-invalid").length > 0) {
+            return;
+          }
+
+          // Here you would typically send the data to your server to send an email via Google API.
+          // For client-side email sending without server, you can use EmailJS or similar services.
+          alert("Mensaje enviado con éxito (simulado para este ejemplo).");
         });
-</script>
+      });
+    </script>
   </body>
 </html>
