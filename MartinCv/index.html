@@ -66,7 +66,7 @@
         <h2>Acerca de mi</h2>
         <p>
           Soy Martin un Profesional IT con mas de 7 años de experiencia
-          trabajando con multiples tecnologias en distintias industrias
+          trabajando con multiples tecnologías en distintas industrias
         </p>
       </div>
     </section>
@@ -198,7 +198,7 @@
           const email = document.getElementById("email");
           const subject = document.getElementById("subject");
           const message = document.getElementById("message");
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex for demonstration
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
           // Simple function to show validation error
           function showValidationError(input, message) {
@@ -239,11 +239,21 @@
             return;
           }
 
+          emailjs.init("SaJvGIA072FQid8oo");
+
           // Here you would typically send the data to your server to send an email via Google API.
           // For client-side email sending without server, you can use EmailJS or similar services.
-          alert("Mensaje enviado con éxito (simulado para este ejemplo).");
+          emailjs.send("service_oy2br6p", "template_e9kjgfm", {
+            to_name: name.value,
+            reply_to: email.value,
+          });
+          alert("Hemos Recibido su consulta!.");
         });
       });
     </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"
+    ></script>
   </body>
 </html>
